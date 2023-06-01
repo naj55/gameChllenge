@@ -3,6 +3,16 @@ const c = canvas.getContext("2d");
 
 canvas.width = 1024;
 canvas.height = 576;
+
+const floorCollisions2d = [];
+for (let i = 0; i < floorCollisions.length; i += 36) {
+  floorCollisions2d.push(floorCollisions.slice(i, i + 36));
+}
+floorCollisions2d.forEach((row) => {
+  row.forEach((symbol) => {
+    if(symbol === 202)
+  });
+});
 const gravity = 0.5;
 class player {
   constructor(position) {
@@ -29,13 +39,10 @@ class player {
   }
 }
 let myplayer = new player({
-  x: 0,
+  x: 500,
   y: 0,
 });
-let myplayer2 = new player({
-  x: 100,
-  y: 100,
-});
+
 const keys = {
   d: {
     pressed: false,
@@ -53,7 +60,6 @@ function animate() {
   c.fillRect(0, 0, canvas.width, canvas.height);
 
   myplayer.update();
-  myplayer2.update();
 
   myplayer.velocity.x = 0;
   if (keys.d.pressed) myplayer.velocity.x = 5;
